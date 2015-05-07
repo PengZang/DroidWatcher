@@ -1,0 +1,97 @@
+<div class="row" ng-show="!display">
+    <div class="well col-sm-6 col-sm-offset-3"
+        style="text-align: center;border: solid 1px #dddddd;">
+        <p>{[ context ]}</p>
+    </div>
+</div>
+
+<div ng-show="display" class="information">
+<div class="row">
+    <h4 style="text-align: center">基本信息</h4>
+    <table  frame=void border rules=none align="left"
+            class=" apkInfo col-sm-10 col-sm-offset-2" style="text-align: left;">
+        <tbody>
+            <tr>
+                <td>应用名称：{[ apk.name ]}</td>
+                <td>应用版本：{[ apk.version ]} </td>
+            </tr>
+            <tr>
+                <td>发布日期：{[ apk.publicationDate ]}</td>
+                <td>修改日期：{[ apk.modifyDate ]}</td>
+            </tr>
+            <tr>
+                <td>MD5值：{[ apk.md5 ]}</td>
+                <td>目标SDK：{[ apk.targetSDK ]}</td>
+            </tr>
+            <tr>
+                <td>最大SDK：{[ apk.maxSDK ]}</td>
+                <td>最小SDK：{[ apk.minSDK ]}</td>
+            </tr>
+            <tr>
+                <td>安装包名称：{[ apk.package ]}</td>
+                <td>主活动：{[ apk.mainActivity ]}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr color="#990099" class="col-sm-10 col-sm-offset-1">
+</div>
+
+<div class="row">
+    <h4 style="text-align: center">签名和证书信息</h4>
+    <table frame=void border rules=none align="left"
+            class="apkInfo col-sm-10 col-sm-offset-2" style="text-align: left;">
+        <tbody>
+            <tr>
+                <td>签名名称：{[ apk.signName ]}</td>
+                <td>签名者：{[ apk.certIssuer  ]}</td>
+            </tr>
+            <tr>
+                <td>证书颁发机构：{[ apk.subjectDN  ]}</td>
+                <td>是否自签名：{[ apk.selfSigned ]}</td>
+            </tr>
+            <tr>
+                <td>是否验证过：{[ apk.verifySigned  ]}</td>
+                <td>根证书是否受信任：{[ apk.rootTrusted  ]}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr color="#990099" class="col-sm-10 col-sm-offset-1">
+</div>
+
+<div class="row">
+    <h4 style="text-align: center">分析报告摘要</h4>
+    <table frame=void border rules=none align="left"
+            class="apkInfo col-sm-10 col-sm-offset-2" style="text-align: left;">
+        <tbody>
+            <tr>
+                <td>样本类型：{[ apk.type ]}</td>
+                <td>风险等级：{[ apk.level ]}</td>
+            </tr>
+            <tr>
+            	<td>外部链接：</td>
+            </tr>
+            <tr ng-repeat="ref in apk.hrefList">
+            	<td>
+            		<a ng-ref="ref">{[ ref ]}</a>
+            	</td>
+            </tr>
+            <tr>
+                <td>简要描述：</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="col-sm-8 col-sm-offset-2" >
+        {[ apk.desc  ]}
+    </p>
+
+</div>
+
+<div style="text-align: center">
+    <a type="button" class="btn btn-lg btn-info" href="/#/report/analysis">
+        查看详细分析报告>>
+    </a>
+    <hr>
+
+</div>
+
+</div>

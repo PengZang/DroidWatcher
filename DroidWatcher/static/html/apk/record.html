@@ -1,0 +1,153 @@
+<div class="row">
+    <div class="well col-sm-6 col-sm-offset-3"
+        style="text-align:center; border: solid 1px #dddddd;">
+        <p>{[ context ]}</p>
+    </div>
+    <br>
+    <br>
+    <hr color="black" class="col-sm-10 col-sm-offset-1">
+
+</div>
+<br>
+<br>
+
+<div class="row table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<td>属性名称</td>
+				<td>属性类型</td>
+				<td>是否必须</td>
+				<td>说明</td>
+			</tr>
+		</thead>
+		<tbody>
+		`	<tr>
+				<td>name</td>
+				<td>String</td>
+				<td>是</td>
+				<td>安卓应用的名称</td>
+			</tr>
+			<tr>
+				<td>md5</td>
+				<td>String</td>
+				<td>是</td>
+				<td>安卓安装包文件的MD5值</td>
+			</tr>
+			<tr>
+				<td>package</td>
+				<td>String</td>
+				<td>是</td>
+				<td>安卓应用发布的报名</td>
+			</tr>
+			<tr>
+				<td>version</td>
+				<td>String</td>
+				<td>是</td>
+				<td>安卓应用的版本号</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>Int(0~2)</td>
+				<td>是</td>
+				<td>安卓应用的类型，有训练样本、测试样本、记录样本，对应0、1、2</td>
+			</tr>
+			<tr>
+				<td>maxSDK</td>
+				<td>String</td>
+				<td>否</td>
+				<td>最大适用SDK版本</td>
+			</tr>
+			<tr>
+				<td>minSDK</td>
+				<td>String</td>
+				<td>否</td>
+				<td>最小适用SDK版本</td>
+			</tr>
+			<tr>
+				<td>targetSDK</td>
+				<td>String</td>
+				<td>否</td>
+				<td>目标SDK版本</td>
+			</tr>
+			<tr>
+				<td>signName</td>
+				<td>String</td>
+				<td>否</td>
+				<td>签名名称</td>
+			</tr>
+			<tr>
+				<td>certIssuer</td>
+				<td>String</td>
+				<td>否</td>
+				<td>签名者信息</td>
+			</tr>
+			<tr>
+				<td>rootTrusted</td>
+				<td>Boolean</td>
+				<td>否</td>
+				<td>根证书是否受信任</td>
+			</tr>
+			<tr>
+				<td>selfSigned</td>
+				<td>Boolean</td>
+				<td>否</td>
+				<td>是否自签名</td>
+			</tr>
+			<tr>
+				<td>verifySign</td>
+				<td>Boolean</td>
+				<td>否</td>
+				<td>签名是否受信任</td>
+			</tr>
+			<tr>
+				<td>subjectDN</td>
+				<td>String</td>
+				<td>否</td>
+				<td>证书颁发机构的信息</td>
+			</tr>
+			<tr>
+				<td>mainActivity</td>
+				<td>String</td>
+				<td>否</td>
+				<td>安卓应用的主界面活动</td>
+			</tr>
+			<tr>
+				<td>modifyDate</td>
+				<td>String</td>
+				<td>是</td>
+				<td>最后更改的日期时间，用户可以不设置，系统会自动添加</td>
+			</tr>
+			<tr>
+				<td>publicationDate</td>
+				<td>String</td>
+				<td>否</td>
+				<td>安卓应用发行的日期时间</td>
+			</tr>
+			<tr>
+				<td>level</td>
+				<td>Int(0-3)</td>
+				<td>是</td>
+				<td>安卓应用的风险等级，0级代表正常，越高说明风险越大</td>
+			</tr>
+			<tr>
+				<td>desc</td>
+				<td>String</td>
+				<td>否</td>
+				<td>对安卓应用的描述，比如与某已知恶意病毒接近</td>
+			</tr>
+			<tr>
+				<td>hrefList</td>
+				<td>List(URL)</td>
+				<td>否</td>
+				<td>一些与该应用有关的外部链接</td>
+			</tr>
+		</tbody>
+	</table>
+    <button  ng-file-select ng-multiple="false" class="col-sm-offset-5"
+         ng-model="files" accept=".json" style="text-align: center;margin-top: 10%;margin-bottom: 5%">
+        上传报告
+    </button>
+</div>
+
+

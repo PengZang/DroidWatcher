@@ -1,0 +1,49 @@
+<div class="row">
+    <div ng-file-drop ng-model="files" class="drop-box col-sm-8 col-sm-offset-2"
+         style="height: 250px; padding-top: 120px; margin-bottom: 30px"
+         drag-over-class="dragover" ng-multiple="false" allow-dir="false"
+        accept=".apk">Drop APK File here</div>
+
+    <div class="btn btn-success col-sm-2 col-sm-offset-1" ng-file-select
+         ng-model="files" accept=".apk" style="text-align: center">
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>选择文件</span>
+    </div>
+    <div class="btn btn-primary col-sm-2 col-sm-offset-2"
+         style="text-align: center" ng-click="start()">
+        <i class="glyphicon glyphicon-upload"></i>
+        <span>开始上传</span>
+    </div>
+    <div class="btn btn-warning col-sm-2 col-sm-offset-2"
+         style="text-align: center" ng-click="cancel()">
+        <i class="glyphicon glyphicon-ban-circle"></i>
+        <span>取消上传</span>
+    </div>
+    <div class="col-sm-2 col-sm-offset-3">
+        <select style="height: 30px" ng-model="apkType" class="form-control">
+            <option value=3 >请选择样本类型</option>
+            <option value=0>训练样本</option>
+            <option value=1>测试样本</option>
+        </select>
+    </div>
+    <div class="col-sm-2 col-sm-offset-2">
+        <select style="height: 30px" ng-model="level" class="form-control">
+            <option value=4 >请选择风险等级</option>
+            <option value=0>正常</option>
+            <option value=1>恶意</option>
+            <option value=2>中危</option>
+            <option value=3>高危</option>
+        </select>
+    </div>
+
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+    <div id="terminal" class="well col-sm-8 col-sm-offset-2" style="border: none;
+    background-color: #000000; padding: 10px;overflow-y: scroll;
+    color: green; height: 400px; word-break: break-all">
+
+    </div>
+</div>

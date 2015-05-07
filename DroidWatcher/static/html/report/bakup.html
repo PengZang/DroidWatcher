@@ -1,0 +1,162 @@
+<div class="row" ng-show="!display">
+    <div class="well col-sm-6 col-sm-offset-3"
+        style="text-align: center;border: solid 1px #dddddd;">
+        <p>{[ context ]}</p>
+    </div>
+</div>
+<br>
+<br>
+
+<div ng-show="display" class="information">
+
+	<div class="row" >
+        <div class="panel panel-primary col-sm-10 col-sm-offset-1" style="padding: 0">
+            <div class="panel-heading" style="text-align: center">
+                统计结果
+            </div>
+            <div class="panel-body table-responsive">
+                <table  frame=void border rules=none align="left"
+            class=" apkInfo col-sm-10 col-sm-offset-2" style="text-align: left;">
+			        <tbody>
+			            <tr>
+			                <td>应用名称：{[ apk.name ]}</td>
+			                <td>应用版本：{[ apk.version ]} </td>
+			            </tr>
+			            <tr>
+			                <td>发布日期：{[ apk.publicationDate ]}</td>
+			                <td>修改日期：{[ apk.modifyDate ]}</td>
+			            </tr>
+			            <tr>
+			                <td>MD5值：{[ apk.md5 ]}</td>
+			                <td>目标SDK：{[ apk.targetSDK ]}</td>
+			            </tr>
+			            <tr>
+			                <td>最大SDK：{[ apk.maxSDK ]}</td>
+			                <td>最小SDK：{[ apk.minSDK ]}</td>
+			            </tr>
+			            <tr>
+			                <td>安装包名称：{[ apk.package ]}</td>
+			                <td>主活动：{[ apk.mainActivity ]}</td>
+			            </tr>
+			        </tbody>
+    			</table>
+            </div>
+        </div>
+    </div>
+
+	
+    <div class="row" >
+        <div class="panel panel-primary col-sm-10 col-sm-offset-1" style="padding: 0">
+            <div class="panel-heading" style="text-align: center">
+                申请权限列表
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>权限名称</td>
+                            <td>权限简介</td>
+                            <td>详细说明</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ACCESSInternet</td>
+                            <td>ebfrehfgrthgitghrtbhtbrtbhjtrbtbehjweuifiwef</td>
+                            <td>ebfrehfgrthgitghrtbhtbrtbhjtrbtbehjweui
+                                wdedewfewfewffiwef</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" >
+        <div class="panel panel-primary col-sm-10 col-sm-offset-1" style="padding: 0;">
+            <div class="panel-heading" style="text-align: center">
+                组件分析面板
+            </div>
+            <div class="panel-body" style="text-align: center; max-height: 100px">
+                <ul class="col-sm-3  list-group">
+                    <li class="list-group-item">Activity列表</li>
+                </ul>
+                <ul class="col-sm-3  list-group">
+                    <li class="list-group-item">Receiver列表</li>
+                </ul>
+                <ul class="col-sm-3  list-group">
+                    <li class="list-group-item">Service列表</li>
+                </ul>
+                <ul class="col-sm-3 list-group">
+                    <li class="list-group-item">Provider列表</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" >
+        <div class="panel panel-primary col-sm-10 col-sm-offset-1" style="padding: 0">
+            <div class="panel-heading" style="text-align: center">
+                敏感API分析列表
+            </div>
+            <div class="panel-body table-responsive" style="text-align: center">
+                <table class="table table-bordered" >
+                    <thead>
+                        <tr>
+                            <td>隶属的包</td>
+                            <td>函数名</td>
+                            <td><敏感程度></敏感程度></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    
+    <br>
+    <br>
+
+    <div class="row" >
+        <div class="panel panel-primary col-sm-10 col-sm-offset-1" style="padding: 0">
+            <div class="panel-heading" style="text-align: center">
+                分析结果汇总
+            </div>
+            <div class="panel-body" style="text-align: center">
+                <table  frame=void border rules=none align="left"
+                    class=" apkInfo col-sm-10 col-sm-offset-2" style="text-align: left;">
+                    <tbody>
+                        <tr>
+                            <td>应用名称：</td>
+                            <td>风险指数：</td>
+                        </tr>
+                        <tr>
+                            <td>活动总数：</td>
+                            <td>服务总数：</td>
+                        </tr>
+                        <tr>
+                            <td>提供者总数：</td>
+                            <td>接收者总数：</td>
+                        </tr>
+                        <tr>
+                            <td>申请权限总数：</td>
+                            <td>敏感API总数：</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>

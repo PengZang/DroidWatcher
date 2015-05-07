@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DjangoWebsocet Chat Demo</title>
+
+    <link rel="stylesheet" href="http://stingtest.qiniudn.com/pure-min.css">
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
+    <script type="text/javascript">
+        var s = new WebSocket("{{ websocket_url }}/ws/");
+        s.onopen = function() {
+
+        };
+
+        s.onmessage = function(e) {
+            var bb = document.getElementById('textarea');
+            var html = bb.innerHTML;
+
+            var new_html = '<div class="speach">' + e.data + '</div>';
+            bb.innerHTML = html + new_html;
+
+            $('#textarea').animate({scrollTop: $('#textarea')[0].scrollHeight});
+        };
+
+        s.onerror = function(e) {
+            console.log(e);
+        };
+
+        s.onclose = function(e) {
+            alert("connection closed");
+        };
+
+        function send() {
+          var value = document.getElementById('text').value;
+          s.send(value);
+        }
+
+        var get_textarea_height = function() {
+            var form_height = $('#inputForm').height();
+            return $(window).height() - form_height - (10 + 2) * 2 - 10;
+        };
+
+        $(function () {
+            $('#textarea').height(get_textarea_height());
+
+            $('#sendBtn').click(function() {
+                send();
+                $('#text').val('');
+                return false;
+            });
+        });
+
+        $(window).resize(function(){
+            $('#textarea').height(get_textarea_height());
+        })
+
+
+    </script>
+
+    <style type="text/css">
+        #textarea {
+            padding: 6px 10px;
+            margin-bottom: 10px;
+            border: 2px solid cornflowerblue;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            word-wrap: break-word;
+        }
+
+        .speach {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgb(220, 220, 220);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="textarea"></div>
+    <form class="pure-form pure-g" id="inputForm">
+        <div class="pure-u-3-4">
+            <input class="pure-input-1 pure-input-rounded" type="text" id="text" placeholder="说点什么" >
+        </div>
+        <div class="pure-u-1-4">
+            <!--<bu class="pure-button pure-button-primary pure-input-1" id="sendBtn" type="submit", value="Send"/>-->
+            <button class="pure-button pure-button-primary pure-input-1" id="sendBtn">Send</button>
+
+        </div>
+    </form>
+</body>
+</html>

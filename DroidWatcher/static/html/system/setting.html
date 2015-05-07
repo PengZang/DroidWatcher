@@ -1,0 +1,74 @@
+<div class="row">
+	<div role="tabpanel" style="margin-top: 3%">
+		<ul class="nav nav-tabs " role="tablist">
+			<li role="presentation" class="col-sm-offset-4"><a
+				href="#method" aria-controls="method" role="tab" data-toggle="tab">
+					检测方法 </a></li>
+			<li role="presentation"><a href="#database"
+				aria-controls="database" role="tab" data-toggle="tab"> 数据库状态 </a></li>
+			<li role="presentation"><a href="#train" aria-controls="train"
+				role="tab" data-toggle="tab"> 训练控制 </a></li>
+		</ul>
+
+		<div class="tab-content" style="margin-top: 5%">
+			<div role="tabpanel" class="tab-pane active" id="method">
+				<div class="radio col-sm-offset-5 col-sm-2" ng-repeat="m in methods">
+					<label> 
+						<input type="radio" name="option" ng-value="m" ng-model="current"> 
+						{[ m ]}
+					</label>
+				</div>
+				<button class="btn btn-success col-sm-3 col-sm-offset-4" 
+				ng-click="editMethod()" style="margin-top: 5%">
+					提交
+				</button>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="database">
+				<table frame=void border rules=none align="left"
+					class=" apkInfo col-sm-9 col-sm-offset-3"
+					style="text-align: left;">
+					<tbody>
+						<tr>
+							<td>样本总数：{[ database.total ]}</td>
+							<td>训练样本数：{[ database.train ]}</td>
+						</tr>
+						<tr>
+							<td>测试样本数：{[ database.test ]}</td>
+							<td>记录样本数：{[ database.record ]}</td>
+						</tr>
+						<tr>
+							<td>恶意样本数：{[ database.malware ]}</td>
+							<td>正常样本数：{[ database.normal ]}</td>
+						</tr>
+					</tbody>
+
+				</table>
+				<br> <br>
+
+				<button class="btn btn-default btn-lg col-sm-4 col-sm-offset-4"
+					style="margin-top: 10%" ng-click="refresh()">刷新</button>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="train">
+				<button class="btn btn-primary col-sm-2 col-sm-offset-5"
+					style="margin-top: 15%" ng-click="train()">开始训练</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="alert alert-info" ng-show="display"
+         style="text-align: center; position: fixed; bottom: 5%; width: 60%; margin-left: 5%; margin-right: 10%">
+    <span>
+        {[ context ]}
+        <button class="close" ng-click="display=false">&times;</button>
+    </span>
+</div>
+<script>
+	$('.nav-tabs a').click(function(e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
+</script>

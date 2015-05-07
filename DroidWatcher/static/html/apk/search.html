@@ -1,0 +1,47 @@
+<div class="row" style="margin-top: 5%" ng-show="!display">
+    <div class="input-group custom-search-form col-sm-6 col-sm-offset-3"
+       style="margin-bottom: 5%">
+        <input type="text" ng-model="keyword" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" style="outline: none" ng-click="search()">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+    <table class="col-sm-8 table  table-hover table-striped">
+          <thead>
+              <tr>
+                <td>应用名称</td>
+                <td>版本号</td>
+                <td>MD5值</td>
+                <td>修改日期</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="apk in apkList">
+                    <td>{[ apk.name ]}</td>
+                    <td>{[ apk.version  ]}</td>
+                    <td>{[ apk.md5 ]}</td>
+                    <td>{[ apk.modifyDate ]}</td>
+                    <td>
+                        <button class="btn btn-info" style="outline: none" ng-click="select(apk)">更多信息</button>
+                    </td>
+                </tr>
+            </tbody>
+     </table>
+     <nav>
+        <ul class="pager">
+          <li class="previous" ng-click="previousPage()"><a href=""><span aria-hidden="true">&larr;</span>上一页</a></li>
+          <li class="next" ng-click="nextPage()"><a href="">下一页<span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+     </nav>
+</div>
+
+<div class="alert alert-info" ng-show="display"
+         style="text-align: center; position: fixed; bottom: 5%; width: 60%; margin-left: 5%; margin-right: 10%">
+    <span>
+        {[ context ]}
+        <button class="close" ng-click="display=false">&times;</button>
+    </span>
+</div>

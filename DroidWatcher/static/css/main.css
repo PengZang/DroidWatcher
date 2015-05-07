@@ -1,0 +1,37 @@
+.panel,.well {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-top-width: 3px;
+    -webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 1px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 1px 10px rgba(0,0,0,0.15);
+    /*overflow-y: scroll;*/
+}
+
+
+table{
+    text-align: center;
+}
+
+.btn {
+    outline: none;
+}
+
+.apkInfo tr {
+    height: 40px;
+    line-height: 30px;
+}
+.drop-box {
+  background: #F8F8F8;
+  border: 5px dashed #DDD;
+  text-align: center;
+  /*padding-top: 40%;*/
+  /*margin-left: 10px;*/
+}
+
+.panel-body{
+    max-height: 500px;
+    overflow-y: scroll;
+}

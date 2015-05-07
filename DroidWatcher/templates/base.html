@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="DroidWatcher">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>DroidWatcher</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    	<link href="/static/lib/metisMenu/metisMenu.min.css" rel="stylesheet">
+    	<link href="/static/lib/sbadmin/css/sb-admin-2.css" rel="stylesheet">
+    	<link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    	<link href="/static/lib/jsonEditor/jsoneditor.min.css" rel="stylesheet">
+    	<link href="/static/css/main.css" rel="stylesheet">
+	</head>
+
+	<body ng-controller="rootCtrl">
+	    <div id="wrapper">
+	        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            {% include "headbar.html" %}
+            {% include "sidebar.html" %}
+            </nav>
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div ui-view>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+	    <script src="/static/lib/jquery.min.js"></script>
+		<script src="/static/lib/bootstrap/js/bootstrap.min.js"></script>
+	    <script src="/static/lib/metisMenu/metisMenu.min.js"></script>
+        <script src="/static/lib/jsonEditor/jsoneditor.min.js"></script>
+	    <script src="/static/lib/sbadmin/js/sb-admin-2.js"></script>
+		<script src="/static/lib/angular/angular.min.js"></script>
+		<script src="/static/lib/socketio/socket.io.js"></script>
+		<script src="/static/lib/fileUpload/angular-file-upload.min.js"></script>
+		<script src="/static/lib/angular/angular-ui-router.min.js"></script>
+		<script src="/static/js/controller.js"></script>
+		<script src="/static/js/app.js"></script>
+    </body>
+
+</html>
