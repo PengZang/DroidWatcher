@@ -190,6 +190,7 @@ def process(request):
         else:
             app.type=1
             fea.train=False
+            print(Config.METHOD)
             detector=DetectorFactory(Config.METHOD)
             tmp=detector.detect({
                              "match":ex.apk,

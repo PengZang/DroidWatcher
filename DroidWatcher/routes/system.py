@@ -12,11 +12,13 @@ def editMethod(request):
     
     req=json.loads(request.body)
     try:
+        print(Config.METHOD)
         if not req.has_key('method'):
             raise myErr('请指定选择的检测方法')
         if not req['method'] in Config.AVAILABLE_METHOD:
             raise myErr('不支持的检测方法')
         Config.METHOD=req['method']
+        print(Config.METHOD)
     except myErr,e:
         return JsonResponse({
                          "success":False,

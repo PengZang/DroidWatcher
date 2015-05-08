@@ -673,37 +673,37 @@ class NopExpression(IRForm):
 
 
 class SwitchExpression(IRForm):
-    def __init__(self, src, branch):
+    def __init__(self, path, branch):
         super(SwitchExpression, self).__init__()
-        self.src = src.v
+        self.path = path.v
         self.branch = branch
-        self.var_map[src.v] = src
+        self.var_map[path.v] = path
 
     def get_used_vars(self):
-        return self.var_map[self.src].get_used_vars()
+        return self.var_map[self.path].get_used_vars()
 
     def visit(self, visitor):
-        return visitor.visit_switch(self.var_map[self.src])
+        return visitor.visit_switch(self.var_map[self.path])
 
     def replace_var(self, old, new):
-        self.src = new.v
+        self.path = new.v
         self.var_map.pop(old)
         self.var_map[new.v] = new
 
     def replace(self, old, new):
         v_m = self.var_map
-        src = v_m[self.src]
-        if not (src.is_const() or src.is_ident()):
-            src.replace(old, new)
+        path = v_m[self.path]
+        if not (path.is_const() or path.is_ident()):
+            path.replace(old, new)
         else:
             if new.is_ident():
                 v_m[new.value()] = new
-                self.src = new.value()
+                self.path = new.value()
             else:
                 v_m[old] = new
 
     def __str__(self):
-        return 'SWITCH(%s)' % (self.var_map[self.src])
+        return 'SWITCH(%s)' % (self.var_map[self.path])
 
 
 class CheckCastExpression(IRForm):

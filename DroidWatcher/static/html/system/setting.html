@@ -14,10 +14,11 @@
 			<div role="tabpanel" class="tab-pane active" id="method">
 				<div class="radio col-sm-offset-5 col-sm-2" ng-repeat="m in methods">
 					<label> 
-						<input type="radio" name="option" ng-value="m" ng-model="current"> 
+						<input type="radio" name="option" ng-value="m" ng-model="$parent.current"> 
 						{[ m ]}
 					</label>
 				</div>
+				
 				<button class="btn btn-success col-sm-3 col-sm-offset-4" 
 				ng-click="editMethod()" style="margin-top: 5%">
 					提交

@@ -278,7 +278,7 @@ def visit_expr(op):
         rhs = visit_expr(op.var_map[op.rhs])
         return assignment(lhs, rhs)
     if isinstance(op, instruction.SwitchExpression):
-        return visit_expr(op.var_map[op.src])
+        return visit_expr(op.var_map[op.path])
     if isinstance(op, instruction.UnaryExpression):
         lhs = op.var_map.get(op.arg)
         if isinstance(op, instruction.CastExpression):

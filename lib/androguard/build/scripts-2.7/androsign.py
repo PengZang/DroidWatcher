@@ -1,4 +1,4 @@
-#!/Users/suemi/Workspace/SuDroid/venv/bin/python
+#!/Users/suemi/Workspace/DroidWatcher/venv/bin/python
 
 # This file is part of Androguard.
 #
@@ -27,7 +27,7 @@ from androguard.core.bytecodes import apk
 from androguard.util import read
 
 sys.path.append("./elsim/")
-from elsim.elsign import dalvik_elsign
+from elsim.elsim.elsign import dalvik_elsign
 
 
 option_0 = { 'name' : ('-i', '--input'), 'help' : 'file : use this filename', 'nargs' : 1 }

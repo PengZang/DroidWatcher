@@ -41,7 +41,10 @@ def addition(request):
     try:
         tmp=Addition.objects(ref=apkId).first()
         if not tmp:
-            raise myErr('该应用并无附加的分析报告')
+            if Application.objects(id=apkId).count()==0:
+                raise myErr('不存在此应用的记录')
+            else:
+                raise myErr('该应用并无附加的分析报告')
         tmp=tmp._data
         tmp['id']=str(tmp['id'])
     except myErr,e:

@@ -476,6 +476,7 @@ angular.module('Controllers',['angularFileUpload'])
 			});
     	};
     	$scope.editMethod=function(){
+//    		console.log($scope.current);
     		$http.post('/system/editMethod',{
     			'method':$scope.current
     		}).success(function(res){

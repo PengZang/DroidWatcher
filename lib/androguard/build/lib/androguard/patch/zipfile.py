@@ -1364,7 +1364,7 @@ def main(args = None):
             zipfile.py -l zipfile.zip        # Show listing of a zipfile
             zipfile.py -t zipfile.zip        # Test if a zipfile is valid
             zipfile.py -e zipfile.zip target # Extract zipfile into target dir
-            zipfile.py -c zipfile.zip src ... # Create zipfile from sources
+            zipfile.py -c zipfile.zip path ... # Create zipfile from sources
         """)
     if args is None:
         args = sys.argv[1:]
@@ -1426,8 +1426,8 @@ def main(args = None):
             # else: ignore
 
         zf = ZipFile(args[1], 'w', allowZip64=True)
-        for src in args[2:]:
-            addToZip(zf, src, os.path.basename(src))
+        for path in args[2:]:
+            addToZip(zf, path, os.path.basename(path))
 
         zf.close()
 

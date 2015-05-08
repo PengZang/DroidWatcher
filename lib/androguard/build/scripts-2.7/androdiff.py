@@ -1,4 +1,4 @@
-#!/Users/suemi/Workspace/SuDroid/venv/bin/python
+#!/Users/suemi/Workspace/DroidWatcher/venv/bin/python
 
 # This file is part of Androguard.
 #
