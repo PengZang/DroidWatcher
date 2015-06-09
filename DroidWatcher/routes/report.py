@@ -1,26 +1,28 @@
-#coding=utf-8
-import os,json
-from handle.schema import Application,Addition,Feature
-from support.help import myErr, Config
+# coding=utf-8
+import os, json
+from handle.schema import Application, Addition, Feature
+from support.help import myErr, Config, logger
 from django.template.context_processors import request
 from django.http.response import Http404, HttpResponse, JsonResponse
 
 def basic(request):
-    if not request.method=='GET':
+    if not request.method == 'GET':
         raise Http404
-    apkId=request.session.get('apkId')
+    apkId = request.session.get('apkId')
     try:
-        tmp=Application.objects(id=apkId).first()
+        tmp = Application.objects(id=apkId).first()
         if not tmp:
             raise myErr('不存在该应用')
-        tmp=tmp.toDict()
-    except myErr,e:
+        tmp = tmp.toDict()
+    except myErr, e:
+        logger.info(e.msg)
         return JsonResponse({
                              "success":False,
                              "data":None,
                              "msg":e.msg
                              })
-    except Exception,e:
+    except Exception, e:
+        logger.error(e.message)
         return JsonResponse({
                              "success":False,
                              "data":None,
@@ -34,27 +36,28 @@ def basic(request):
                              })
 
 def addition(request):
-    if not request.method=='GET':
+    if not request.method == 'GET':
         raise Http404
-    apkId=request.session.get('apkId')
+    apkId = request.session.get('apkId')
     print apkId
     try:
-        tmp=Addition.objects(ref=apkId).first()
+        tmp = Addition.objects(ref=apkId).first()
         if not tmp:
-            if Application.objects(id=apkId).count()==0:
+            if Application.objects(id=apkId).count() == 0:
                 raise myErr('不存在此应用的记录')
             else:
                 raise myErr('该应用并无附加的分析报告')
-        tmp=tmp._data
-        tmp['id']=str(tmp['id'])
-    except myErr,e:
+        tmp = tmp._data
+        tmp['id'] = str(tmp['id'])
+    except myErr, e:
+        logger.info(e.msg)
         return JsonResponse({
                              "success":False,
                              "data":None,
                              "msg":e.msg
                              })
-    except Exception,e:
-        print e
+    except Exception, e:
+        logger.error(e.message)
         return JsonResponse({
                              "success":False,
                              "data":None,
@@ -71,45 +74,45 @@ def addition(request):
 
 
 def edit(request):
-    print 'HAHA'
-    if not request.method=='POST':
+    if not request.method == 'POST':
         raise Http404
-    req=json.loads(request.body)
-    apkId=request.session.get('apkId')
-    res={}
+    req = json.loads(request.body)
+    apkId = request.session.get('apkId')
+    res = {}
     try:
         if not req.has_key('operation'):
             raise myErr('请务必指定执行操作')
-        if req['operation']=='delete':
+        if req['operation'] == 'delete':
             if not apkId:
                 raise myErr('请先指定当前应用')
             Addition.objects(ref=apkId).delete()
             Feature.objects(ref=apkId).delete()
             Application.objects(id=apkId).delete()
-            request.session['apkId']=None
-        elif req['operation']=='modify':
+            request.session['apkId'] = None
+        elif req['operation'] == 'modify':
             if not apkId:
                 raise myErr('请先指定当前应用')
-            app=Application(id=apkId)
+            app = Application(id=apkId)
             app.fromDict(req['data'])
             app.save()
-            res=req['data']
-        elif req['operation']=='create':
-            app=Application()
+            res = req['data']
+        elif req['operation'] == 'create':
+            app = Application()
             app.fromDict(req['data'])
             app.save()
-            res=app.toDict()
-            request.session['apkId']=str(app.id)
+            res = app.toDict()
+            request.session['apkId'] = str(app.id)
         else:
             raise myErr('不支持的操作类型')
-    except myErr,e:
+    except myErr, e:
+        logger.info(e.msg)
         return JsonResponse({
                          "success":False,
                          "data":None,
                          "msg":e.msg
                          })
-    except Exception,e:
-        print e.message
+    except Exception, e:
+        logger.error(e.message)
         return JsonResponse({
                          "success":False,
                          "data":None,

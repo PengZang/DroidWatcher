@@ -1,7 +1,7 @@
 #coding=utf-8
 import os,json
 from handle.schema import Application,Addition,Feature
-from support.help import myErr, Config
+from support.help import myErr, Config,logger
 from django.template.context_processors import request
 from django.http.response import Http404, HttpResponse, JsonResponse
 from offline.core import train
@@ -20,12 +20,14 @@ def editMethod(request):
         Config.METHOD=req['method']
         print(Config.METHOD)
     except myErr,e:
+        logger.info(e.msg)
         return JsonResponse({
                          "success":False,
                          "data":None,
                          "msg":e.msg
                          })
     except Exception,e:
+        logger.error(e.message)
         return JsonResponse({
                          "success":False,
                          "data":None,
@@ -48,6 +50,7 @@ def startTrain(request):
         for m in methods:
             train(m)
     else:
+        logger.info('Train Process Startred')
         return JsonResponse({
                              "success":True,
                              "data":None,
@@ -72,7 +75,7 @@ def info(request):
         method['current']=Config.METHOD
         res['database']=database;res['method']=method
     except Exception,e:
-        print e.message
+        logger.error(e.message)
         return JsonResponse({
                              "success":False,
                              "data":None,

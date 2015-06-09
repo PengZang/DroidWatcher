@@ -88,17 +88,20 @@ class MyData:
 
 class MyRun:
     def __init__(self,isTrain=False):
-        self.isTrain=isTrain
-        self.res=[]
-        self.clf=None
+        self.isTrain=isTrain  #指定当前行动是训练还是测试
+        self.res=[]           #存储测试结果
+        self.clf=None         #存储训练所得的分类器参数
     
     def train(self):
+        #训练过程
         pass
     
     def test(self):
+        #测试过程
         pass
     
     def run(self):
+        #被调用的接口
         if self.isTrain:
             self.train()
         else:
@@ -187,6 +190,22 @@ class MatchSVM(MyRun):
 #         self.labels=runner1.labels
         return
 
+class MatchRF(MyRun):
+    def train(self):
+        runner=MySVM(self.isTrain)
+        runner.train()
+        pk.dump(runner.clf,open('./support/cache/randomForest.pk','w'))
+    
+    def test(self):
+        runner1=MyMatch(self.isTrain)
+        runner1.test()
+        runner2=MyRandomForest(self.isTrain)
+        runner2.test()
+        self.res=[x if x>0 else y for x,y in zip(runner1.res,runner2.res)]
+#         self.labels=runner1.labels
+        return
+    
+    
 class SVMRF(MyRun):
     def train(self):
         runner1=MySVM(self.isTrain)
@@ -216,6 +235,8 @@ def factory(method,isTrain):
         return MyRandomForest(isTrain)
     elif method=='svm+randomForest':
         return SVMRF(isTrain)
+    elif method=='match+randomForest':
+        return MatchRF(isTrain)
     else:
         print("No such method for now!")
         return None  

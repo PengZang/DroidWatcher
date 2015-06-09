@@ -41,6 +41,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_socketio',
+    'account',
+    'gunicorn',
+    'pinax_theme_bootstrap',
+    'bootstrapform',
     'DroidWatcher',
 )
 
@@ -53,6 +57,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    "account.middleware.LocaleMiddleware",
+    "account.middleware.TimezoneMiddleware",
     'DroidWatcher.routes.middleware.SelectMiddleware',
 )
 
@@ -69,6 +75,9 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.core.context_processors.request',
+                'pinax_theme_bootstrap.context_processors.theme',
+                "account.context_processors.account",
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -85,11 +94,11 @@ SESSION_ENGINE='django.contrib.sessions.backends.signed_cookies'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.dummy',
-        # 'NAME': 'DroidWatcher',
-        # 'HOST':'/Volumes/Mac/temp/mysql.sock',
-        # 'USER':'root',
-        # 'PASSWORD':'yy19940517',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,'support/sqlite3.db'),
+        'HOST':'',
+        'USER':'',
+        'PASSWORD':'',
     }
 }
 
@@ -123,4 +132,48 @@ STATICFILES_DIRS = (
 )
 STATICFILES_FINDERS=(
     'django.contrib.staticfiles.finders.FileSystemFinder',
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'support/log/DroidWatcher.log'),
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'DroidWatcher': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
+}
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

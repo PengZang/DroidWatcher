@@ -1,10 +1,12 @@
 
-import io
+import io,logging
 import pickle as pk
 from lib.androguard.androguard.core import androconf
 from hashlib import md5
 
 MSG={}
+
+logger=logging.getLogger('DroidWatcher')
 
 def saveFile(src,path):
     dst=open(path,'wb')

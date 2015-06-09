@@ -82,3 +82,4 @@ class GeneratorBriedge:
             tmp=generatorFactory(f)
             res[f]=tmp.generateFeature(self.data)
         return res
+    

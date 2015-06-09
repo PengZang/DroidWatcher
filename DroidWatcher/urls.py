@@ -2,11 +2,14 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls import *
+# from django.conf.urls.defaults import *
 from django.views.generic.base import TemplateView
 from django.conf.urls.i18n import urlpatterns
 from DroidWatcher.routes.apk import *
+from account.decorators import login_required
+from django.shortcuts import render_to_response
 urlpatterns=patterns('DroidWatcher.routes',
-    (r'^$',TemplateView.as_view(template_name="base.html")),
+#     (r'^$',TemplateView.as_view(template_name="base.html")),
     (r'^admin/', include(admin.site.urls)),
     (r'^apk/search$','apk.search'),
     (r'^apk/upload$','apk.upload'),
@@ -23,6 +26,14 @@ urlpatterns=patterns('DroidWatcher.routes',
 #     (r'^socket\.io',include(socketio.sdjango.urls)),
 )
 
+@login_required
+def home(request):
+    return render_to_response('base.html')
+
 urlpatterns+=patterns('',
-    url('',include('django_socketio.urls')),
+#     (r'^admin',include(admin.site.urls)),
+#     (r'^accounts/',include('DroidWatcher.accounts.urls')),
+      url('^$', home, name='home'),
+      (r'^account/',include("account.urls")),  
+      (r'^test',TemplateView.as_view(template_name="test.html")),
 )
