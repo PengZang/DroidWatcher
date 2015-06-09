@@ -1,0 +1,21 @@
+{% extends "account/base.html" %}
+
+{% load url from future %}
+{% load bootstrap %}
+
+{% block body_class %}account account-settings{% endblock %}
+
+{% block head_title %}账户{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-5">
+            <form method="POST" action="{% url "account_settings" %}">
+                <legend>账户</legend>
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button class="btn btn-primary" type="submit">保存</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

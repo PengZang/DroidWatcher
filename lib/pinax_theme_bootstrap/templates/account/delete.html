@@ -1,0 +1,20 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block body_class %}account account-delete{% endblock %}
+
+{% block head_title %}{% trans "删除账户" %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans "删除账户" %}</h1>
+    
+    <p>{% blocktrans %}如果你继续操作并执行删除,你的信息会在 <b>{{ ACCOUNT_DELETION_EXPUNGE_HOURS }}小时</b>内删除.{% endblocktrans %}</p>
+    
+    <form method="post" action="{% url "account_delete" %}" autocapitalize="off">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">{% trans "删除我的账户" %}</button>
+    </form>
+    
+{% endblock %}

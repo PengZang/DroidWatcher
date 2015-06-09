@@ -1,0 +1,47 @@
+2015-05-17T17:56:10.776+0800 [initandlisten] MongoDB starting : pid=7711 port=5000 dbpath=./mongoData 64-bit host=suemi.local
+2015-05-17T17:56:10.776+0800 [initandlisten] db version v2.6.7
+2015-05-17T17:56:10.776+0800 [initandlisten] git version: nogitversion
+2015-05-17T17:56:10.776+0800 [initandlisten] build info: Darwin miniyosemite.local 14.1.0 Darwin Kernel Version 14.1.0: Fri Dec  5 06:49:27 PST 2014; root:xnu-2782.10.67~9/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-05-17T17:56:10.776+0800 [initandlisten] allocator: tcmalloc
+2015-05-17T17:56:10.776+0800 [initandlisten] options: { config: "/Users/suemi/Workspace/temp/mongo.conf", net: { bindIp: "127.0.0.1", port: 5000 }, storage: { dbPath: "./mongoData" }, systemLog: { destination: "file", logAppend: true, path: "./mongo.log" } }
+2015-05-17T17:56:10.777+0800 [initandlisten] exception in initAndListen: 10296 
+*********************************************************************
+ ERROR: dbpath (./mongoData) does not exist.
+ Create this directory or give existing directory in --dbpath.
+ See http://dochub.mongodb.org/core/startingandstoppingmongo
+*********************************************************************
+, terminating
+2015-05-17T17:56:10.777+0800 [initandlisten] dbexit: 
+2015-05-17T17:56:10.777+0800 [initandlisten] shutdown: going to close listening sockets...
+2015-05-17T17:56:10.777+0800 [initandlisten] shutdown: going to flush diaglog...
+2015-05-17T17:56:10.777+0800 [initandlisten] shutdown: going to close sockets...
+2015-05-17T17:56:10.777+0800 [initandlisten] shutdown: waiting for fs preallocator...
+2015-05-17T17:56:10.777+0800 [initandlisten] shutdown: lock for final commit...
+2015-05-17T17:56:10.777+0800 [initandlisten] shutdown: final commit...
+2015-05-17T17:56:10.777+0800 [initandlisten] shutdown: closing all files...
+2015-05-17T17:56:10.777+0800 [initandlisten] closeAllFiles() finished
+2015-05-17T17:56:10.777+0800 [initandlisten] dbexit: really exiting now
+2015-05-17T17:56:17.729+0800 ***** SERVER RESTARTED *****
+2015-05-17T17:56:17.738+0800 [initandlisten] MongoDB starting : pid=7721 port=5000 dbpath=./mongoData 64-bit host=suemi.local
+2015-05-17T17:56:17.739+0800 [initandlisten] db version v2.6.7
+2015-05-17T17:56:17.739+0800 [initandlisten] git version: nogitversion
+2015-05-17T17:56:17.739+0800 [initandlisten] build info: Darwin miniyosemite.local 14.1.0 Darwin Kernel Version 14.1.0: Fri Dec  5 06:49:27 PST 2014; root:xnu-2782.10.67~9/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-05-17T17:56:17.739+0800 [initandlisten] allocator: tcmalloc
+2015-05-17T17:56:17.739+0800 [initandlisten] options: { config: "/Users/suemi/Workspace/temp/mongo.conf", net: { bindIp: "127.0.0.1", port: 5000 }, storage: { dbPath: "./mongoData" }, systemLog: { destination: "file", logAppend: true, path: "./mongo.log" } }
+2015-05-17T17:56:17.739+0800 [initandlisten] exception in initAndListen: 10296 
+*********************************************************************
+ ERROR: dbpath (./mongoData) does not exist.
+ Create this directory or give existing directory in --dbpath.
+ See http://dochub.mongodb.org/core/startingandstoppingmongo
+*********************************************************************
+, terminating
+2015-05-17T17:56:17.739+0800 [initandlisten] dbexit: 
+2015-05-17T17:56:17.739+0800 [initandlisten] shutdown: going to close listening sockets...
+2015-05-17T17:56:17.739+0800 [initandlisten] shutdown: going to flush diaglog...
+2015-05-17T17:56:17.739+0800 [initandlisten] shutdown: going to close sockets...
+2015-05-17T17:56:17.739+0800 [initandlisten] shutdown: waiting for fs preallocator...
+2015-05-17T17:56:17.739+0800 [initandlisten] shutdown: lock for final commit...
+2015-05-17T17:56:17.739+0800 [initandlisten] shutdown: final commit...
+2015-05-17T17:56:17.739+0800 [initandlisten] shutdown: closing all files...
+2015-05-17T17:56:17.739+0800 [initandlisten] closeAllFiles() finished
+2015-05-17T17:56:17.739+0800 [initandlisten] dbexit: really exiting now

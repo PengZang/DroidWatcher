@@ -1,0 +1,13 @@
+{% extends "site_base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Confirm your email address" %}{% endblock %}
+
+{% block body %}
+    <h2>{% trans "Confirm your email address" %}</h2>
+    
+    <p>{% blocktrans %}我们已经发送邮件到<b>{{ email }}</b>以便验证. 请根据下文的连接完成注册步骤. 如果您在几分钟后还未收到邮件,请联系我们 <a href="mailto:{{ THEME_CONTACT_EMAIL }}">{{ THEME_CONTACT_EMAIL }}</a>.{% endblocktrans %}</p>
+    <p><a href="{{ success_url }}">{% trans "Go back" %}</a></p>
+{% endblock %}

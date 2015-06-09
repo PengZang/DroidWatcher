@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="mysql5-1431913440771-1712456108" provider="mysql" driver="mysql5" name="beatsbeans" create-date="1431913483309" update-date="1432536674984" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="192.168.0.100" port="3306" server="" database="beatsbeans_suemi" url="jdbc:mysql://192.168.0.100:3306/beatsbeans_suemi" user="beatsbeans" password="GBEVL0pWVxll8w==" type="dev">
+			<property name="@dbeaver-ssl@" value="false"/>
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
+				<property name="socks-host" value=""/>
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
+				<property name="port" value="22"/>
+				<property name="keyPath" value=""/>
+				<property name="host" value=""/>
+				<property name="authType" value="PASSWORD"/>
+			</network-handler>
+		</connection>
+		<custom-property name="default.activeObject" value=""/>
+		<custom-property name="default.isolation" value="4"/>
+	</data-source>
+</data-sources>

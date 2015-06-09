@@ -1,0 +1,21 @@
+%YAML:1.0
+
+annotation:
+  folder: VOC2007
+  filename: "000001.jpg"
+  source: {database: The VOC2007 Database, annotation: PASCAL VOC2007, image: flickr,
+    flickrid: '341012865'}
+  owner: {flickrid: Fried Camels, name: Jinky the Fruit Bat}
+  size: {width: '353', height: '500', depth: '3'}
+  segmented: '0'
+  object:
+    - bndbox: {xmin: '48', ymin: '240', xmax: '195', ymax: '371'}
+      name: dog
+      pose: Left
+      truncated: '1'
+      difficult: '0'
+    - bndbox: {xmin: '8', ymin: '12', xmax: '352', ymax: '498'}
+      name: person
+      pose: Left
+      truncated: '1'
+      difficult: '0'
